@@ -7,6 +7,14 @@ from sql_queries import *
 
 
 def process_song_file(cur, filepath):
+    '''
+    Process song file and populates song and artist table with its data.
+    
+        Parameters:
+            cur (object): Postgresql cursor
+            filepath (string): path of file to process
+    '''
+    
     # open song file
     df = pd.read_json(filepath, typ='series')
 
@@ -20,6 +28,14 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
+    '''
+    Process log file and populates time, user and songplay tables.
+    
+        Parameters:
+            cur (object): Postgresql cursor
+            filepath (string): path of file to process 
+    '''
+    
     # open log file
     df = pd.read_json(filepath, lines=True)
 
@@ -59,11 +75,21 @@ def process_log_file(cur, filepath):
             songid, artistid = None, None
 
         # insert songplay record
-        songplay_data = (index, pd.to_datetime(row['ts'], unit='ms'), row['userId'], row['level'], songid, artistid, row['sessionId'], row['location'], row['userAgent'])
+        songplay_data = (pd.to_datetime(row['ts'], unit='ms'), row['userId'], row['level'], songid, artistid, row['sessionId'], row['location'], row['userAgent'])
         cur.execute(songplay_table_insert, songplay_data)
 
 
 def process_data(cur, conn, filepath, func):
+    '''
+    Get all the files to process and iterates over them calling the corresponding function for the processing
+        
+        Parameters:
+            cur (object): Postgresql cursor
+            conn (object): Postgresql connection object
+            filepath (string): path of directory to scan
+            func (function): function defined in this file
+    '''
+    
     # get all files matching extension from directory
     all_files = []
     for root, dirs, files in os.walk(filepath):
@@ -83,6 +109,10 @@ def process_data(cur, conn, filepath, func):
 
 
 def main():
+    '''
+    Connects to sparkify database and passes the connection and cursor objects to the corresponding functions to perform the ETL 
+    '''
+    
     #Connects to sparkify db
     conn = psycopg2.connect("host=127.0.0.1 dbname=sparkifydb user=student password=student")
     

@@ -16,9 +16,9 @@ The database that was built and tested on this project has 2 objectives:
 ![schema](db_schema.png "Database schema")
 As we can see in the schema displayed above, the database is following a star schema. Where there are several dimensions with their own type of data and all of them converge into one fact table called **songplays**.
 
-## ETL pipeline
+## ETL pipeline<a name="etl_pipeline"></a>
 
-Here we will analyze the process that follows [etl.py](etl.py).
+Here we will analyze the process that follows [etl.py](#etl.py).
 
 The following method is the **main** method. This is the code that starts all the calls to the corresponding functions. Here is called the function **process_data** with 2 functions passed as parameters
 ```python
@@ -114,3 +114,42 @@ This is the second function called from **process_data**, called **process_log_f
         songplay_data = (index, pd.to_datetime(row['ts'], unit='ms'), row['userId'], row['level'], songid, artistid, row['sessionId'], row['location'], row['userAgent'])
         cur.execute(songplay_table_insert, songplay_data)
 ```
+
+# How to run the Python scripts
+
+To execute and test the code that was explained on the previous section you will need to execute the following **bash scripts**:
+
+Execute the python script **create_tables.py** to generate the database Sparkify and its tables.
+```bash
+foo@bar:~$ python create_tables.py
+```
+
+Then, execute the script **etl.py** to perform the ETL process detailed in the [ETL pipeline section](#etl)
+```bash
+foo@bar:~$ python etl.py
+```
+
+To test the code executed, open the [Jupyter notebook](https://jupyter.org/) [test.ipynb](#test.ipynb) with the notebook editor of your preference.
+
+# Files in the repository
+
+## data<a name="data"></a>
+This is not a file but a folder that contains all the data that will be used in the ETL process.
+
+## create_tables.py<a name="create_tables.py"></a>
+Python script that generates the database Sparkify and its tables.
+
+## db_schema.png<a name="db_schema.png"></a>
+Schema of the database used in this project.
+
+## etl.ipynb<a name="etl.ipynb"></a>
+[Jupyter notebook](https://jupyter.org/) used to divide the etl into clear steps before it is done in [etl.py](#etl.py).
+
+## etl.py<a name="etl.py"></a>
+Python script that executes the ETL process described [here](#etl_pipeline).
+
+## sql_queries.py
+Python class that contains only T-SQL statements ready to be executed out of this file, this approach follows a similar methodology to the [factory](https://en.wikipedia.org/wiki/Factory_method_pattern) programming pattern.
+
+## test.ipynb
+[Jupyter notebook](https://jupyter.org/) used to test and check that the etl process was executed correctly.
