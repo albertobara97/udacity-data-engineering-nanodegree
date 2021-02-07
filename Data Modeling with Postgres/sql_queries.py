@@ -11,12 +11,12 @@ time_table_drop = "DROP TABLE IF EXISTS time"
 songplay_table_create = ("""
     CREATE TABLE songplays(
         songplay_id SERIAL PRIMARY KEY, 
-        start_time timestamp, 
-        user_id int, 
+        start_time timestamp NOt NULL, 
+        user_id int NOt NULL, 
         level varchar(150), 
         song_id varchar(150), 
         artist_id varchar(150), 
-        session_id int, 
+        session_id int NOt NULL, 
         location varchar(150), 
         user_agent varchar(150)
     )
@@ -25,27 +25,27 @@ songplay_table_create = ("""
 user_table_create = ("""
     CREATE TABLE users(
         user_id int PRIMARY KEY, 
-        first_name varchar(50), 
-        last_name varchar(50), 
+        first_name varchar(50) NOt NULL, 
+        last_name varchar(50) NOt NULL, 
         gender char(1), 
-        level varchar(50)
+        level varchar(50) NOt NULL
     )
 """)
 
 song_table_create = ("""
     CREATE TABLE songs(
         song_id varchar(50) PRIMARY KEY, 
-        title varchar(100), 
-        artist_id varchar(50), 
+        title varchar(100) NOt NULL, 
+        artist_id varchar(50) NOt NULL, 
         year int, 
-        duration float
+        duration float NOt NULL
     )
 """)
 
 artist_table_create = ("""
     CREATE TABLE artists(
         artist_id varchar(150) PRIMARY KEY,
-        name varchar(150), 
+        name varchar(150) NOt NULL, 
         location varchar(150), 
         latitude real, 
         longitude real
@@ -55,12 +55,12 @@ artist_table_create = ("""
 time_table_create = ("""
     CREATE TABLE time(
         start_time timestamp PRIMARY KEY, 
-        hour int, 
-        day int, 
-        week int, 
-        month int, 
-        year int, 
-        weekday varchar(25)
+        hour int NOt NULL, 
+        day int NOt NULL, 
+        week int NOt NULL, 
+        month int NOt NULL, 
+        year int NOt NULL, 
+        weekday varchar(25) NOt NULL
     )
 """)
 
