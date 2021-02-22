@@ -1,4 +1,4 @@
-# Data Engineering nanodegree Program  ![25%](https://progress-bar.dev/25/?title=completed)
+# Data Engineering nanodegree Program  ![60%](https://progress-bar.dev/60/?title=completed)
 
 This GitHub repository was made for completing all the projects needed to finish [this](https://www.udacity.com/course/data-engineer-nanodegree--nd027) Udacitiy course.
 
