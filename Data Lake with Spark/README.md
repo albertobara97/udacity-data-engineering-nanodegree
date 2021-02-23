@@ -33,3 +33,19 @@ The final tables are populated from the bulk data that we have in the source fil
 ## ETL process
 The ETL process is defined by the execution of 1 python script:
 * [etl.py](etl.py)
+
+This script will perform the following actions as described
+1. Create a new spark session
+2. Read and process song data from Udacity's S3 Bucket into our AWS S3 Bucket
+3. Read and process log data from Udacity's S3 Bucket into our AWS S3 Bucket
+
+## Other files in repository
+In this section of the repository, you will find the following files
+
+### data_lake_source_tables.png & data_lake_final_tables.png
+
+These images are the "databases" schemas displayed on this file
+
+### output.txt
+
+This file is the redirected output of the etl.py due to the overload of data in the terminal

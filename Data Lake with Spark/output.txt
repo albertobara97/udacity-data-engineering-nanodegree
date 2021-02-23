@@ -100,3 +100,24 @@ spark: <pyspark.sql.session.SparkSession object at 0x7f0c929e2550>
 input_data: s3a://udacity-dend/
 output_data: s3a://spark-project-udacity/
 song_data (path): s3a://udacity-dend/song_data/*/*/*/*.json
+
+#	#	#		2021-02-23 01:23:58.231820		#	#	#
+
+spark: <pyspark.sql.session.SparkSession object at 0x7f0c929e2550>
+input_data: s3a://udacity-dend/
+output_data: s3a://spark-project-udacity/
+song_data (path): s3a://udacity-dend/song_data/*/*/*/*.json
+
+#	#	#		2021-02-23 02:23:58.231820		#	#	#
+
+spark: <pyspark.sql.session.SparkSession object at 0x7f0c929e2550>
+input_data: s3a://udacity-dend/
+output_data: s3a://spark-project-udacity/
+song_data (path): s3a://udacity-dend/song_data/*/*/*/*.json
+
+#	#	#		2021-02-23 02:33:58.231820		#	#	#
+
+spark: <pyspark.sql.session.SparkSession object at 0x7f0c929e2550>
+input_data: s3a://udacity-dend/
+output_data: s3a://spark-project-udacity/
+song_data (path): s3a://udacity-dend/song_data/*/*/*/*.json
