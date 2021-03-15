@@ -1,0 +1,3 @@
+s3_bucket = udacity-dend
+logs_directory = log_data
+songs_directory = song_data
