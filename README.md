@@ -1,4 +1,4 @@
-# Data Engineering nanodegree Program  ![85%](https://progress-bar.dev/85/?title=completed)
+# Data Engineering nanodegree Program  ![100%](https://progress-bar.dev/100/?title=completed)
 
 This GitHub repository was made for completing all the projects needed to finish [this](https://www.udacity.com/course/data-engineer-nanodegree--nd027) Udacitiy course.
 
@@ -15,5 +15,5 @@ In this project, we move from SQL to NoSQL using [Apache Cassandra](https://cass
 
 
 
-[percent_finished]: 25
+[percent_finished]: 100
 [jp]: https://jupyter.org/
